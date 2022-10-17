@@ -68,3 +68,33 @@ function selecionarBebida (botao){
         }
         }
     
+
+        function whatsapp(){
+            const nomePrato = (document.querySelector('.rolagemPrato .borda-verde .h1')).innerHTML;
+            const nomeBebida = (document.querySelector('.rolagemBebida .borda-verde .h1')).innerHTML;
+            const nomeSobremesa = (document.querySelector('.rolagemSobremesa .borda-verde .h1')).innerHTML;
+    
+    
+            const valorPrato = (document.querySelector('.rolagemPrato .borda-verde .h3')).innerHTML;
+            let valorPratoNumero = Number(valorPrato);
+            const valorBebida = (document.querySelector('.rolagemBebida .borda-verde .h3')).innerHTML;
+            let valorBebidaNumero = Number(valorBebida);
+            const valorSobremesa = (document.querySelector('.rolagemSobremesa .borda-verde .h3')).innerHTML;
+            let valorSobremesaNumero = Number(valorSobremesa);
+    
+    
+            let valorfinal =  valorPratoNumero + valorBebidaNumero + valorSobremesaNumero;
+            valorfinal = valorfinal.toFixed(2)
+          
+    
+            let mensagem = `Olá, gostaria de fazer o pedido:
+            - Prato: ${nomePrato}
+            - Bebida: ${nomeBebida}
+            - Sobremesa: ${nomeSobremesa}
+            Total: R$ ${valorfinal}`
+    
+            mensagem = encodeURIComponent(mensagem);
+            let final = `https://wa.me/+553599083544?text=` + mensagem;
+            window.open(final);
+           
+            }
